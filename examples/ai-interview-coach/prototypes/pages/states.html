@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css">
+<style>
+.state-card { display:flex; flex-direction:column; gap:10px; }
+.mini { padding:12px; border:1px solid var(--hairline); border-radius:6px; background:white; font-size:12px; }
+.mini .row { display:flex; gap:8px; align-items:center; margin-top:8px; }
+.dialog-mock { border:1px solid #c9c9c9; border-radius:6px; padding:12px; background:white; }
+</style>
+<title>状态展示</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+mount(shell({ active: 'states', content: `<main class="page"><div class="eyebrow">Foundation / State gallery</div><h1>关键状态</h1><p>面试流程的边界状态并列展示：生成、作答、额度、报告四段链路（对应 PRD 06 的状态清单）。</p><section class="grid">
+<article class="card state-card"><div class="eyebrow">Loading · 题单生成</div><h2>生成题单中</h2><div class="mini"><div class="skeleton"></div><div class="skeleton" style="width:70%"></div><p class="muted" style="margin:8px 0 0">正在分析 JD 中的能力要求…（阶段文案轮播）</p></div></article>
+<article class="card state-card" id="state-quota"><div class="eyebrow">Disabled · 额度</div><h2>免费次数用尽</h2><div class="mini"><p style="margin:0">今日 3 场完练已用完，明日 0:00 恢复。</p><div class="row"><button class="button" disabled>开始模拟</button><span class="muted">未完练不计入次数</span></div></div></article>
+<article class="card state-card" id="state-network"><div class="eyebrow">Error · 网络</div><h2>连接中断</h2><div class="mini"><p style="margin:0">发送失败，已自动重试 1 次仍失败。</p><div class="row"><button class="button primary">重试</button><span class="muted">你的答案已保留</span></div></div></article>
+<article class="card state-card" id="state-exit"><div class="eyebrow">Confirm · 放弃</div><h2>中途退出确认</h2><div class="mini dialog-mock"><strong>放弃这场模拟？</strong><p class="muted" style="margin:6px 0">放弃将不计为完练；对话保留至今日，可回来继续。</p><div class="row"><button class="button">放弃本场</button><button class="button primary">继续作答</button></div></div></article>
+<article class="card state-card"><div class="eyebrow">Inline · 空答案</div><h2>空答案提醒</h2><div class="mini"><p style="margin:0;color:var(--danger)">输入为空——可以先写关键词，或请求提示。</p><div class="row"><textarea placeholder="输入你的回答…" style="flex:1;min-height:36px;border:1px solid var(--hairline);border-radius:6px;font:inherit"></textarea></div></div></article>
+<article class="card state-card"><div class="eyebrow">Loading · 报告</div><h2>报告生成中</h2><div class="mini"><p style="margin:0">正在按四维度评分…（约 10-20 秒）</p><div class="row"><div class="skeleton" style="flex:1;margin:0"></div></div></div></article>
+</section></main>` }));
+</script></body></html>

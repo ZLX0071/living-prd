@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css">
+<style>
+.m-card { padding:18px 20px; background:var(--surface); border:1px solid var(--hairline); border-radius:6px; display:grid; grid-template-columns: minmax(0,1fr) auto; gap:12px; align-items:center; }
+.m-title { font-size:14px; }
+.m-meta { display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+.score { font:20px var(--font-mono); }
+.score.low { color:var(--danger); }
+.m-actions { display:flex; gap:8px; flex-direction:column; align-items:stretch; }
+.m-group-title { margin:26px 0 12px; font-size:15px; display:flex; gap:10px; align-items:baseline; }
+.m-group-title .count { font:11px var(--font-mono); color:var(--muted); }
+.tag { display:inline-block; padding:2px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--secondary); font-size:11px; }
+.tag.red { color:var(--danger); border-color:var(--danger); }
+.tag.ok { color:var(--success); border-color:var(--success); }
+.mastered .m-title, .mastered .m-meta { opacity:.55; }
+</style>
+<title>错题本</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+const nav = [
+  { href: './prep-home.html', label: '准备', pageId: 'prep-home' },
+  { href: './interview-session.html', label: '面试', pageId: 'interview-session' },
+  { href: './report-detail.html', label: '报告', pageId: 'report-detail' },
+  { href: './mistake-book.html', label: '错题本', pageId: 'mistake-book' },
+];
+mount(shell({ active: 'mistake-book', nav, content: `
+<main class="page">
+  <div class="eyebrow">Review / Mistake book</div>
+  <h1>错题本</h1>
+  <p id="mistake-rule" style="max-width:680px">单题总分 &lt; 60 或提示用尽的题目自动进入这里；重练后达标可标记"已掌握"。按来源岗位分组、按分数升序。</p>
+
+  <div class="m-group-title">待重练 <span class="count">2 题</span></div>
+  <section class="stack">
+    <article class="m-card">
+      <div>
+        <div class="m-title">Q7 · 如果公众号粉丝增长停滞，你的下一步动作是什么？</div>
+        <div class="m-meta"><span class="tag">字节跳动 · 产品经理</span><span class="tag">项目追问</span><span class="tag red">未掌握</span><span class="muted" style="font-size:11px">入本于 10-01</span></div>
+      </div>
+      <div class="m-actions">
+        <span class="score low">52</span>
+        <a class="button primary" id="retrain-button" href="./interview-session.html" data-nav="interview-session">重练本题</a>
+      </div>
+    </article>
+    <article class="m-card">
+      <div>
+        <div class="m-title">Q5 · 你如何把一个内容选题推给不活跃的用户？</div>
+        <div class="m-meta"><span class="tag">字节跳动 · 产品经理</span><span class="tag">专业面</span><span class="tag red">未掌握</span><span class="muted" style="font-size:11px">入本于 10-01</span></div>
+      </div>
+      <div class="m-actions"><span class="score low">58</span><a class="button primary" href="./interview-session.html" data-nav="interview-session">重练本题</a></div>
+    </article>
+  </section>
+
+  <div class="m-group-title">已掌握 <span class="count">1 题</span></div>
+  <section class="stack">
+    <article class="m-card mastered">
+      <div>
+        <div class="m-title">Q2 · 说明一次你与队友意见不一致的经历</div>
+        <div class="m-meta"><span class="tag">腾讯 · 产品培训生</span><span class="tag">行为面</span><span class="tag ok" id="mastered-toggle">已掌握 · 10-02 标记</span></div>
+      </div>
+      <div class="m-actions"><span class="score" style="color:var(--success)">68</span><button class="button" style="font-size:11px">改为未掌握</button></div>
+    </article>
+  </section>
+</main>` }));
+</script></body></html>

@@ -1,0 +1,38 @@
+{
+  "pageId": "prep-home",
+  "annotations": [
+    {
+      "id": "a-prep-home-001",
+      "number": 1,
+      "coordinateSpace": "document",
+      "x": 0.78,
+      "y": 0.32,
+      "target": "#new-prep-card",
+      "title": "新建岗位准备",
+      "content": "对应 PRD §F-prep-01：公司与岗位必填；JD 50-6000 字，为空时使用岗位方向通用题库并在卡片标注。",
+      "status": "active"
+    },
+    {
+      "id": "a-prep-home-002",
+      "number": 2,
+      "coordinateSpace": "document",
+      "x": 0.78,
+      "y": 0.5,
+      "target": "#jd-textarea",
+      "title": "JD 粘贴与字数校验",
+      "content": "对应 PRD §F-prep-01/02：超长即时提示禁止提交；提交后进入生成 loading（阶段文案轮播，p95<15s）。",
+      "status": "active"
+    },
+    {
+      "id": "a-prep-home-003",
+      "number": 3,
+      "coordinateSpace": "document",
+      "x": 0.3,
+      "y": 0.33,
+      "target": "#prep-card-bytedance",
+      "title": "岗位卡与进度",
+      "content": "对应 PRD §F-prep-04：展示题数/已练/错题/上次练习；按最近更新排序；从这里发起整场模拟或查看报告。",
+      "status": "active"
+    }
+  ]
+}

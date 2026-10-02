@@ -1,0 +1,38 @@
+{
+  "pageId": "mistake-book",
+  "annotations": [
+    {
+      "id": "a-mistake-001",
+      "number": 1,
+      "coordinateSpace": "document",
+      "x": 0.38,
+      "y": 0.13,
+      "target": "#mistake-rule",
+      "title": "入本规则",
+      "content": "对应 PRD §F-rep-04：单题总分 <60 或提示用尽自动入本；列表按来源岗位分组、按分数升序（CR-rep-02）。",
+      "status": "active"
+    },
+    {
+      "id": "a-mistake-002",
+      "number": 2,
+      "coordinateSpace": "document",
+      "x": 0.72,
+      "y": 0.38,
+      "target": "#retrain-button",
+      "title": "一键重练",
+      "content": "对应 PRD §F-rep-04：携带原题与上次答案摘要进入单题精练；重练结果更新本题状态与岗位卡进度。",
+      "status": "active"
+    },
+    {
+      "id": "a-mistake-003",
+      "number": 3,
+      "coordinateSpace": "document",
+      "x": 0.62,
+      "y": 0.78,
+      "target": "#mastered-toggle",
+      "title": "已掌握标记",
+      "content": "对应 PRD §F-rep-04：手动标记后移出待重练分组；可反向改回，标记时间留痕。",
+      "status": "active"
+    }
+  ]
+}

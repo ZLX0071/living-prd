@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css">
+<style>
+.prep-layout { display:grid; grid-template-columns: minmax(0,1fr) 360px; gap:20px; align-items:start; margin-top:28px; }
+.prep-card { padding:20px; background:var(--surface); border:1px solid var(--hairline); border-radius:6px; }
+.prep-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.prep-meta { display:flex; gap:14px; color:var(--muted); font:12px var(--font-mono); margin:10px 0; flex-wrap:wrap; }
+.progressline { height:4px; background:var(--hairline); border-radius:999px; overflow:hidden; margin:12px 0 14px; }
+.progressline .fill { height:100%; background:var(--ink); }
+.prep-actions { display:flex; gap:8px; }
+.tag { display:inline-block; padding:2px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--secondary); font-size:11px; }
+.field { display:grid; gap:6px; margin-bottom:12px; }
+.field label { font-size:12px; color:var(--secondary); }
+.field input, .field textarea { width:100%; padding:8px 10px; border:1px solid var(--hairline); border-radius:6px; font:inherit; background:white; }
+.field textarea { min-height:96px; resize:vertical; }
+.counter { font:11px var(--font-mono); color:var(--muted); text-align:right; }
+@media (max-width: 860px) { .prep-layout { grid-template-columns: 1fr; } }
+</style>
+<title>岗位准备</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+const nav = [
+  { href: './prep-home.html', label: '准备', pageId: 'prep-home' },
+  { href: './interview-session.html', label: '面试', pageId: 'interview-session' },
+  { href: './report-detail.html', label: '报告', pageId: 'report-detail' },
+  { href: './mistake-book.html', label: '错题本', pageId: 'mistake-book' },
+];
+mount(shell({ active: 'prep-home', nav, content: `
+<main class="page">
+  <div class="eyebrow">Prep / 2026 秋招</div>
+  <h1>准备你的下一场面试</h1>
+  <p style="max-width:640px">粘贴岗位 JD，AI 生成 8-12 道针对性题目（含追问），练完自动产出评分报告与错题本。</p>
+  <div class="prep-layout">
+    <section class="stack">
+      <article class="prep-card" id="prep-card-bytedance">
+        <div class="prep-head"><strong>字节跳动 · 产品经理（暑期实习）</strong><span class="tag">题单就绪</span></div>
+        <div class="prep-meta"><span>题单 10 题</span><span>已练 6</span><span style="color:var(--danger)">错题 2</span><span>上次练习 昨天 21:40</span></div>
+        <div class="progressline"><div class="fill" style="width:60%"></div></div>
+        <div class="prep-actions">
+          <a class="button primary" href="./interview-session.html" data-nav="interview-session">继续整场模拟</a>
+          <a class="button" href="./report-detail.html" data-nav="report-detail">查看上次报告</a>
+        </div>
+      </article>
+      <article class="prep-card">
+        <div class="prep-head"><strong>腾讯 · 产品培训生</strong><span class="tag">题单就绪</span></div>
+        <div class="prep-meta"><span>题单 9 题</span><span>已练 3</span><span>错题 0</span><span>上次练习 10-28</span></div>
+        <div class="progressline"><div class="fill" style="width:33%"></div></div>
+        <div class="prep-actions"><a class="button primary" href="./interview-session.html" data-nav="interview-session">开始整场模拟</a></div>
+      </article>
+      <article class="prep-card">
+        <div class="prep-head"><strong>美团 · 产品运营（通用题单）</strong><span class="tag">JD 未填写</span></div>
+        <div class="prep-meta"><span>题单 8 题</span><span>已练 0</span><span>错题 0</span></div>
+        <div class="progressline"><div class="fill" style="width:0%"></div></div>
+        <div class="prep-actions"><a class="button" href="./interview-session.html" data-nav="interview-session">浏览题单</a></div>
+      </article>
+    </section>
+    <aside>
+      <article class="prep-card" id="new-prep-card">
+        <h2 style="margin-top:0">新建岗位准备</h2>
+        <div class="field"><label>公司</label><input placeholder="如：字节跳动"></div>
+        <div class="field"><label>岗位</label><input placeholder="如：产品经理（暑期实习）"></div>
+        <div class="field"><label for="jd-textarea">JD 原文（可空，空则用通用题库）</label>
+          <textarea id="jd-textarea" placeholder="粘贴 JD 全文，生成效果最好…"></textarea>
+          <div class="counter"><span id="jd-counter">0</span> / 6000 字（至少 50 字）</div>
+        </div>
+        <button class="button primary" id="generate-btn" style="width:100%">生成题单</button>
+        <p class="muted" id="generate-hint" style="font-size:12px;margin:10px 0 0">生成 8-12 题，约需 10 秒；行为面 / 专业面 / 项目追问三类。</p>
+      </article>
+    </aside>
+  </div>
+</main>` }));
+</script></body></html>

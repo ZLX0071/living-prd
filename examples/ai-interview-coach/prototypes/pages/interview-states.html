@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css">
+<style>
+.state-card { display:flex; flex-direction:column; gap:10px; }
+.mini { padding:12px; border:1px solid var(--hairline); border-radius:6px; background:white; font-size:12px; }
+.mini .row { display:flex; gap:8px; align-items:center; margin-top:8px; flex-wrap:wrap; }
+.recover { color:var(--muted); font-size:11px; margin:0; }
+.dialog-mock { border:1px solid #c9c9c9; border-radius:6px; padding:12px; }
+.tag { display:inline-block; padding:2px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--secondary); font-size:11px; }
+</style>
+<title>面试边界状态</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+const nav = [
+  { href: './prep-home.html', label: '准备', pageId: 'prep-home' },
+  { href: './interview-session.html', label: '面试', pageId: 'interview-session' },
+  { href: './report-detail.html', label: '报告', pageId: 'report-detail' },
+  { href: './mistake-book.html', label: '错题本', pageId: 'mistake-book' },
+];
+mount(shell({ active: 'interview-session', nav, content: `
+<main class="page">
+  <div class="eyebrow">Mock Interview / State gallery</div>
+  <h1>面试边界状态</h1>
+  <p>模拟面试链路的异常与边界状态，每张卡附恢复路径与对应规则（PRD 06 / CR-int-01…05）。</p>
+  <section class="grid">
+    <article class="card state-card" id="state-quota">
+      <div class="eyebrow">Disabled · CR-int-03</div><h2>免费次数用尽</h2>
+      <div class="mini"><p style="margin:0">今日 3 场完练已用完，明日 0:00 恢复。</p>
+      <div class="row"><button class="button" disabled>开始模拟</button><span class="tag">demo 期不接入支付</span></div></div>
+      <p class="recover">恢复路径：次日自动恢复；放弃/未完练的场次不扣次数，可回来源场次继续。</p>
+    </article>
+    <article class="card state-card" id="state-network">
+      <div class="eyebrow">Error · CR-int-02</div><h2>发送失败（网络）</h2>
+      <div class="mini"><p style="margin:0">发送失败，已自动重试 1 次仍失败。</p>
+      <div class="row"><button class="button primary">重试</button><span class="muted">你的答案已保留，不会丢</span></div></div>
+      <p class="recover">恢复路径：答案留在输入框；连续失败提示切换网络，场次进度已持久化。</p>
+    </article>
+    <article class="card state-card" id="state-exit">
+      <div class="eyebrow">Confirm · F-int-04</div><h2>中途退出确认</h2>
+      <div class="mini dialog-mock"><strong>放弃这场模拟？</strong>
+      <p class="muted" style="margin:6px 0">放弃将不计为完练；对话保留至今日，可回来继续作答。</p>
+      <div class="row"><button class="button">放弃本场</button><button class="button primary">继续作答</button></div></div>
+      <p class="recover">恢复路径：误关页面直接回到当前题；主动放弃需此确认，防误触也防刷次数。</p>
+    </article>
+    <article class="card state-card">
+      <div class="eyebrow">Inline · CR-int-04</div><h2>空答案提醒</h2>
+      <div class="mini"><p style="margin:0;color:var(--danger)">输入为空——可以先写关键词，或请求提示。</p>
+      <div class="row"><textarea placeholder="输入你的回答（20-2000 字）…" style="flex:1;min-height:40px;border:1px solid var(--hairline);border-radius:6px;font:inherit"></textarea></div></div>
+      <p class="recover">恢复路径：连续 2 次空答案时，建议跳过本题或使用提示，不强制。</p>
+    </article>
+    <article class="card state-card">
+      <div class="eyebrow">Loading · F-int-02</div><h2>考官思考中</h2>
+      <div class="mini"><p style="margin:0">正在评估你的回答，决定是否追问…（超过 15 秒显示此态）</p>
+      <div class="row"><div class="skeleton" style="flex:1;margin:0"></div></div></div>
+      <p class="recover">恢复路径：超时不阻塞——用户可继续编辑草稿，响应到达后替换。</p>
+    </article>
+    <article class="card state-card">
+      <div class="eyebrow">Loading · F-int-05</div><h2>报告生成中</h2>
+      <div class="mini"><p style="margin:0">正在按四维度评分…（约 10-20 秒）</p>
+      <div class="row"><div class="skeleton" style="flex:1;margin:0"></div></div></div>
+      <p class="recover">恢复路径：生成失败保留场次数据，报告页可重试；完练状态不受影响。</p>
+    </article>
+  </section>
+</main>` }));
+</script></body></html>

@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "product": {
+    "name": "AI面试陪练",
+    "type": "Web",
+    "status": "delivering",
+    "source": {
+      "mode": "idea"
+    }
+  },
+  "modules": [
+    {
+      "id": "product-definition",
+      "title": "产品定义与目标",
+      "prd": "prd/01-product-definition.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "users-and-needs",
+      "title": "用户与需求分析",
+      "prd": "prd/02-users-and-needs.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "stories-and-journey",
+      "title": "用户故事与旅程",
+      "prd": "prd/03-user-stories-and-journey.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "metrics-and-north-star",
+      "title": "数据与北极星指标",
+      "prd": "prd/04-metrics-and-north-star.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "prep-planner",
+      "title": "岗位准备与题单",
+      "prd": "prd/05-prep-planner.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": ["prep-home"]
+    },
+    {
+      "id": "mock-interview",
+      "title": "模拟面试",
+      "prd": "prd/06-mock-interview.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": ["interview-session", "interview-states"]
+    },
+    {
+      "id": "report-review",
+      "title": "报告与错题本",
+      "prd": "prd/07-report-review.md",
+      "kind": "prd",
+      "status": "approved",
+      "pages": ["report-detail", "mistake-book"]
+    },
+    {
+      "id": "competitive-analysis",
+      "title": "竞品分析",
+      "prd": "shaping/00-competitive-analysis.md",
+      "kind": "shaping",
+      "navNumber": "S0",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-intake",
+      "title": "输入材料",
+      "prd": "shaping/00-intake.md",
+      "kind": "shaping",
+      "navNumber": "S1",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-product",
+      "title": "产品定型",
+      "prd": "shaping/01-product-shaping.md",
+      "kind": "shaping",
+      "navNumber": "S2",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-jtbd",
+      "title": "JTBD 分析",
+      "prd": "shaping/02-jtbd.md",
+      "kind": "shaping",
+      "navNumber": "S3",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-scope",
+      "title": "MVP 范围",
+      "prd": "shaping/03-scope.md",
+      "kind": "shaping",
+      "navNumber": "S4",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-flows",
+      "title": "页面与流程",
+      "prd": "shaping/04-pages-and-flows.md",
+      "kind": "shaping",
+      "navNumber": "S5",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-questions",
+      "title": "待确认问题",
+      "prd": "shaping/05-open-questions.md",
+      "kind": "shaping",
+      "navNumber": "S6",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "shaping-brief",
+      "title": "定型摘要",
+      "prd": "shaping/06-shaped-brief.md",
+      "kind": "shaping",
+      "navNumber": "S7",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "design-system",
+      "title": "视觉设计规范",
+      "prd": "reference/DESIGN.md",
+      "kind": "reference",
+      "navNumber": "R1",
+      "status": "approved",
+      "pages": []
+    },
+    {
+      "id": "foundation",
+      "title": "组件与状态",
+      "prd": "reference/components-and-states.md",
+      "kind": "reference",
+      "navNumber": "R2",
+      "status": "approved",
+      "pages": ["components", "states"]
+    },
+    {
+      "id": "plan",
+      "title": "PRD 板块计划",
+      "prd": "prd/00-plan.md",
+      "kind": "process",
+      "navNumber": "00",
+      "hidden": true,
+      "status": "approved",
+      "pages": []
+    }
+  ],
+  "pages": [
+    {
+      "id": "prep-home",
+      "title": "岗位准备",
+      "moduleId": "prep-planner",
+      "file": "prototypes/pages/prep-home.html",
+      "annotationFile": "annotations/prep-home.json",
+      "kind": "main",
+      "device": "desktop",
+      "viewport": { "width": 1280, "height": 800 },
+      "canvas": { "x": 80, "y": 80 }
+    },
+    {
+      "id": "interview-session",
+      "title": "模拟面试",
+      "moduleId": "mock-interview",
+      "file": "prototypes/pages/interview-session.html",
+      "annotationFile": "annotations/interview-session.json",
+      "kind": "main",
+      "device": "desktop",
+      "viewport": { "width": 1280, "height": 800 },
+      "canvas": { "x": 700, "y": 80 }
+    },
+    {
+      "id": "interview-states",
+      "title": "面试边界状态",
+      "moduleId": "mock-interview",
+      "file": "prototypes/pages/interview-states.html",
+      "annotationFile": "annotations/interview-states.json",
+      "kind": "state-gallery",
+      "device": "desktop",
+      "viewport": { "width": 1280, "height": 800 },
+      "canvas": { "x": 700, "y": 520 }
+    },
+    {
+      "id": "report-detail",
+      "title": "练习报告",
+      "moduleId": "report-review",
+      "file": "prototypes/pages/report-detail.html",
+      "annotationFile": "annotations/report-detail.json",
+      "kind": "main",
+      "device": "desktop",
+      "viewport": { "width": 1280, "height": 800 },
+      "canvas": { "x": 1320, "y": 80 }
+    },
+    {
+      "id": "mistake-book",
+      "title": "错题本",
+      "moduleId": "report-review",
+      "file": "prototypes/pages/mistake-book.html",
+      "annotationFile": "annotations/mistake-book.json",
+      "kind": "main",
+      "device": "desktop",
+      "viewport": { "width": 1280, "height": 800 },
+      "canvas": { "x": 1940, "y": 80 }
+    },
+    {
+      "id": "components",
+      "title": "组件展示",
+      "moduleId": "foundation",
+      "file": "prototypes/pages/components.html",
+      "annotationFile": "annotations/components.json",
+      "kind": "component-gallery",
+      "device": "desktop",
+      "viewport": { "width": 1440, "height": 900 },
+      "canvas": { "x": 1320, "y": 520 }
+    },
+    {
+      "id": "states",
+      "title": "状态展示",
+      "moduleId": "foundation",
+      "file": "prototypes/pages/states.html",
+      "annotationFile": "annotations/states.json",
+      "kind": "state-gallery",
+      "device": "desktop",
+      "viewport": { "width": 1440, "height": 900 },
+      "canvas": { "x": 1940, "y": 520 }
+    }
+  ],
+  "relations": [
+    { "id": "r-prep-interview", "from": "prep-home", "to": "interview-session", "label": "开始模拟面试", "trigger": "a[data-nav=interview-session]" },
+    { "id": "r-interview-report", "from": "interview-session", "to": "report-detail", "label": "生成练习报告", "trigger": "完成全部作答后自动跳转（原型经链接示意）" },
+    { "id": "r-interview-states", "from": "interview-session", "to": "interview-states", "label": "查看边界状态", "trigger": "a[data-nav=interview-states]" },
+    { "id": "r-report-mistakes", "from": "report-detail", "to": "mistake-book", "label": "去错题本复习", "trigger": "a[data-nav=mistake-book]" },
+    { "id": "r-mistakes-interview", "from": "mistake-book", "to": "interview-session", "label": "重练本题", "trigger": "a[data-nav=interview-session]" },
+    { "id": "r-components-states", "from": "components", "to": "states", "label": "查看状态", "trigger": "data-nav=states" }
+  ]
+}

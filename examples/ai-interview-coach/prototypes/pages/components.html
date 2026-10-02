@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css">
+<style>
+.tag { display:inline-block; padding:2px 8px; border:1px solid var(--hairline); border-radius:999px; color:var(--secondary); font-size:11px; }
+.bubble { max-width:520px; padding:10px 14px; border:1px solid var(--hairline); border-radius:6px; background:white; font-size:13px; }
+.bubble.me { margin-left:auto; color:white; background:var(--ink); border-color:var(--ink); }
+.bubble-row { display:flex; margin:10px 0; }
+.scorebar { display:flex; align-items:center; gap:10px; font-size:12px; }
+.scorebar .track { flex:1; height:6px; background:var(--hairline); border-radius:999px; overflow:hidden; }
+.scorebar .fill { height:100%; background:var(--ink); }
+.progressline { height:4px; background:var(--hairline); border-radius:999px; overflow:hidden; }
+.progressline .fill { height:100%; background:var(--ink); }
+</style>
+<title>组件展示</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+mount(shell({ active: 'components', content: `<main class="page"><div class="eyebrow">Foundation / Components</div><h1>关键组件</h1><p>面试陪练的共享组件基线：按钮、输入、对话气泡、标签、评分与进度。</p><section class="grid">
+<article class="card stack"><div class="eyebrow">Actions</div><h2>按钮</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="button primary">生成题单</button><button class="button">次操作</button><button class="button" disabled>今日次数用尽</button></div><p class="muted" style="font-size:12px">禁用态必须带原因文案（如额度用尽）。</p></article>
+<article class="card stack"><div class="eyebrow">Input</div><h2>输入</h2><input placeholder="公司名称" style="height:36px;padding:0 10px;border:1px solid var(--hairline);border-radius:6px"><textarea placeholder="粘贴 JD 原文（50-6000 字）" style="min-height:64px;padding:8px 10px;border:1px solid var(--hairline);border-radius:6px;font:inherit"></textarea></article>
+<article class="card stack"><div class="eyebrow">Chat</div><h2>对话气泡</h2><div class="bubble-row"><div class="bubble">请介绍一下你在这个项目中负责的部分？</div></div><div class="bubble-row"><div class="bubble me">我负责内容排期和两篇深度选题。</div></div><div class="bubble-row"><div class="bubble" style="border-style:dashed">追问 · 阅读量翻倍的归因是什么？</div></div></article>
+<article class="card stack"><div class="eyebrow">Tags</div><h2>标签</h2><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="tag">行为面</span><span class="tag">项目追问</span><span class="tag">难度 2/3</span><span class="tag" style="color:var(--danger);border-color:var(--danger)">已入错题本</span><span class="tag" style="color:var(--success);border-color:var(--success)">已掌握</span></div></article>
+<article class="card stack"><div class="eyebrow">Score</div><h2>评分条</h2><div class="scorebar"><span style="width:64px">结构 24/30</span><div class="track"><div class="fill" style="width:80%"></div></div></div><div class="scorebar"><span style="width:64px">匹配 21/30</span><div class="track"><div class="fill" style="width:70%"></div></div></div><div class="scorebar"><span style="width:64px">深度 18/25</span><div class="track"><div class="fill" style="width:72%"></div></div></div></article>
+<article class="card dark stack"><div class="eyebrow">States</div><h2>状态全景</h2><p style="color:#c9c9c9">loading / empty / error / 次数用尽 / 退出确认等边界状态在独立页并列检查。</p><div class="progressline" style="background:#333"><div class="fill" style="width:60%"></div></div><a class="button" href="./states.html" style="color:white" data-nav="states">查看状态 →</a></article>
+</section></main>` }));
+</script></body></html>

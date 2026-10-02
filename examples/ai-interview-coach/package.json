@@ -1,0 +1,14 @@
+{
+  "name": "living-prd-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node runtime/server/server.mjs",
+    "validate": "node runtime/server/validate.mjs"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "marked": "^16.2.1",
+    "mermaid": "^11.9.0"
+  }
+}

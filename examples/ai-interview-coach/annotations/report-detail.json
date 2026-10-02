@@ -1,0 +1,49 @@
+{
+  "pageId": "report-detail",
+  "annotations": [
+    {
+      "id": "a-report-001",
+      "number": 1,
+      "coordinateSpace": "document",
+      "x": 0.11,
+      "y": 0.24,
+      "target": "#score-ring",
+      "title": "总分环",
+      "content": "对应 PRD §F-rep-01：四维 30/30/25/15 加权（CR-rep-01）；环外必须带数值文本，不依赖纯颜色。",
+      "status": "active"
+    },
+    {
+      "id": "a-report-002",
+      "number": 2,
+      "coordinateSpace": "document",
+      "x": 0.42,
+      "y": 0.26,
+      "target": "#dimension-bars",
+      "title": "四维评分",
+      "content": "对应 PRD §F-rep-01：每维 1 句评价且引用用户原话 ≥1 处；页面全局标注\"AI 建议仅供参考\"（Q1 信任方案）。",
+      "status": "active"
+    },
+    {
+      "id": "a-report-003",
+      "number": 3,
+      "coordinateSpace": "document",
+      "x": 0.5,
+      "y": 0.72,
+      "target": "#improve-action",
+      "title": "可执行改进动作",
+      "content": "对应 PRD §F-rep-02：每题 1 条、动词开头、指向下次练习（CR-rep-03），杜绝空泛评价。",
+      "status": "active"
+    },
+    {
+      "id": "a-report-004",
+      "number": 4,
+      "coordinateSpace": "document",
+      "x": 0.25,
+      "y": 0.93,
+      "target": "#go-mistake-book",
+      "title": "去错题本",
+      "content": "对应 PRD §F-rep-04：单题 <60 或提示用尽自动入本（CR-rep-02）；重练携带原题与上次答案摘要回流单题精练。",
+      "status": "active"
+    }
+  ]
+}

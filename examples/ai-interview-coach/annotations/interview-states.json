@@ -1,0 +1,38 @@
+{
+  "pageId": "interview-states",
+  "annotations": [
+    {
+      "id": "a-int-states-001",
+      "number": 1,
+      "coordinateSpace": "document",
+      "x": 0.16,
+      "y": 0.28,
+      "target": "#state-quota",
+      "title": "次数用尽",
+      "content": "对应 PRD §F-int-01：每日 3 完练场次，用尽当日锁定并展示恢复时间；demo 期不接入支付（CR-int-03）。",
+      "status": "active"
+    },
+    {
+      "id": "a-int-states-002",
+      "number": 2,
+      "coordinateSpace": "document",
+      "x": 0.68,
+      "y": 0.28,
+      "target": "#state-network",
+      "title": "网络错误恢复",
+      "content": "对应 PRD §F-int-02：发送失败自动重试 1 次并提示；答案保留在输入框，场次进度已持久化。",
+      "status": "active"
+    },
+    {
+      "id": "a-int-states-003",
+      "number": 3,
+      "coordinateSpace": "document",
+      "x": 0.16,
+      "y": 0.66,
+      "target": "#state-exit",
+      "title": "放弃确认",
+      "content": "对应 PRD §F-int-04：主动放弃需确认——不计为完练、对话保留至今日；既防误触也防刷次数。",
+      "status": "active"
+    }
+  ]
+}

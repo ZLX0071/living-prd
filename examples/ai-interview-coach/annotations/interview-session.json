@@ -1,0 +1,49 @@
+{
+  "pageId": "interview-session",
+  "annotations": [
+    {
+      "id": "a-int-session-001",
+      "number": 1,
+      "coordinateSpace": "document",
+      "x": 0.78,
+      "y": 0.11,
+      "target": "#session-progress",
+      "title": "进度与软计时",
+      "content": "对应 PRD §F-int-01：整场 25 分钟软计时，超时仅提醒不强断（CR-int-05）；额度规则见 CR-int-03。",
+      "status": "active"
+    },
+    {
+      "id": "a-int-session-002",
+      "number": 2,
+      "coordinateSpace": "document",
+      "x": 0.42,
+      "y": 0.42,
+      "target": "#followup-chip",
+      "title": "追问机制",
+      "content": "对应 PRD §F-int-02：答案含糊/缺量化/缺归因时追问 0-2 次；不重复已问内容、不超题目考察范围（CR-int-01）。",
+      "status": "active"
+    },
+    {
+      "id": "a-int-session-003",
+      "number": 3,
+      "coordinateSpace": "document",
+      "x": 0.1,
+      "y": 0.86,
+      "target": "#hint-button",
+      "title": "提示（每场 2 次）",
+      "content": "对应 PRD §F-int-03：给考察点+答题框架而非答案；使用后该题报告标记\"使用过提示\"（CR-int-02）。",
+      "status": "active"
+    },
+    {
+      "id": "a-int-session-004",
+      "number": 4,
+      "coordinateSpace": "document",
+      "x": 0.5,
+      "y": 0.86,
+      "target": "#answer-input",
+      "title": "作答输入",
+      "content": "对应 PRD §F-int-02：20-2000 字，Enter 发送 / Shift+Enter 换行（CR-int-04）；空答案行内提醒，发送失败自动重试且不丢内容。",
+      "status": "active"
+    }
+  ]
+}
