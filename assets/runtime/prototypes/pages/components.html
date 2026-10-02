@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css"><title>组件展示</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+mount(shell({ content: `<main class="page"><div class="eyebrow">Foundation / Components</div><h1>关键组件</h1><p>在详细功能开始前，先统一页框、操作和反馈。</p><section class="grid"><article class="card stack"><div class="eyebrow">Actions</div><h2>按钮</h2><button class="button primary">主操作</button><button class="button">次操作</button><button class="button" disabled>不可用</button></article><article class="card stack"><div class="eyebrow">Feedback</div><h2>反馈</h2><div class="status"><span class="status-mark">✓</span><div><strong>保存成功</strong><div class="muted">内容已同步</div></div></div></article><article class="card dark stack"><div class="eyebrow">Navigation</div><h2>状态全景</h2><p style="color:#c9c9c9">在独立页中并列比较多状态。</p><a class="button" href="./states.html" style="color:white" data-nav="states">查看状态 →</a></article></section></main>` }));
+</script></body></html>

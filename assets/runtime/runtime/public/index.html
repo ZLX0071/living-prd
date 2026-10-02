@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living PRD</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="nav-rail" id="nav"><div class="nav-brand">LP</div><div id="nav-items"></div></aside>
+  <div class="shell">
+    <header class="topbar">
+      <div><div class="eyebrow" id="product-type">LIVING PRD</div><h1 id="product-name">Loading…</h1></div>
+      <div class="actions"><button id="process-toggle" class="button" hidden>隐藏过程产物</button><button id="edit-button" class="button">编辑源文件</button><button id="export-button" class="button primary">导出</button></div>
+    </header>
+    <main>
+      <div class="view-tabs"><button data-view="document" class="tab active">文档与原型</button><button data-view="canvas" class="tab">全局画布</button><span id="save-state" class="save-state">已加载</span></div>
+      <section id="document-view" class="view active"><div class="document-toolbar"><span id="document-context">先连续阅读 PRD，需要核对交互时进入同页对照。</span><button id="compare-button" class="button primary">对照原型</button></div><article id="markdown" class="markdown"></article></section>
+      <section id="prototype-view" class="view">
+        <div class="prototype-toolbar"><button id="exit-compare" class="button">返回文档</button><label>页面 <select id="page-select"></select></label><button id="annotation-visibility-button" class="button">显示标注</button><button id="annotate-button" class="button">添加标注</button><span id="viewport-label" class="mono"></span><button id="expand-prototype" class="button">展开原型</button></div>
+        <div id="review-layout" class="review-layout">
+          <div class="prototype-column"><div id="prototype-stage" class="prototype-stage"></div></div>
+          <aside id="review-inspector" class="review-inspector">
+            <div class="inspector-tabs"><button class="inspector-tab active" data-inspector="prd">文档</button><button class="inspector-tab" data-inspector="annotations">页面标注</button><button id="close-inspector" class="inspector-close" aria-label="收起审阅栏">×</button></div>
+            <div id="inspector-prd" class="inspector-pane active"><article id="split-markdown" class="markdown compact"></article></div>
+            <div id="inspector-annotations" class="inspector-pane"><aside id="annotation-list" class="annotation-list"></aside></div>
+          </aside>
+          <button id="floating-inspector" class="floating-inspector">文档</button>
+        </div>
+      </section>
+      <section id="canvas-view" class="view"><div class="canvas-toolbar"><span class="canvas-hint">拖拽页面标题调整位置，松开后自动保存</span><button id="auto-layout" class="button">自动排列</button><button id="zoom-out" class="button">−</button><span id="zoom-label" class="mono">60%</span><button id="zoom-in" class="button">+</button></div><div id="canvas-scroll" class="canvas-scroll"><div id="canvas" class="canvas"></div></div></section>
+    </main>
+  </div>
+  <dialog id="export-dialog"><form method="dialog" class="editor-head"><strong>导出当前内容</strong><button class="icon-button" value="cancel">×</button></form><div class="export-options"><button id="export-bundle-button" class="button">资料包导出（PRD + 原型截图）</button><button id="export-copy-button" class="button primary">复制飞书 / Notion Markdown</button><button id="export-download-button" class="button">下载飞书 / Notion Markdown（.md）</button><p class="export-hint">资料包保存到工作区 exports/；Markdown 已适配飞书与 Notion——Mermaid 折叠为节点说明、标注转为表格，可直接粘贴到协作文档。</p></div></dialog>
+  <dialog id="editor"><form method="dialog" class="editor-head"><strong>编辑外部内容</strong><button class="icon-button" value="cancel">×</button></form><div class="editor-tools"><select id="editor-file"></select><button id="save-editor" class="button primary">保存</button></div><textarea id="editor-content" spellcheck="false"></textarea></dialog>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

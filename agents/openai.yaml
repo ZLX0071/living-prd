@@ -1,0 +1,8 @@
+interface:
+  display_name: "Living PRD"
+  short_description: "从产品想法或 Demo 代码生成活文档 PRD 工作区"
+  brand_color: "#171717"
+  default_prompt: "Use $living-prd to shape my product idea or restore product facts from my Demo code, then build a modular living PRD workspace."
+
+policy:
+  allow_implicit_invocation: true

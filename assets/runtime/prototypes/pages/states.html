@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../shared/tokens.css"><title>状态展示</title></head>
+<body><div id="app"></div><script type="module">
+import { mount, shell } from '../shared/components.js';
+mount(shell({ content: `<main class="page"><div class="eyebrow">Foundation / State gallery</div><h1>关键状态</h1><p>设计师可在同一视图中检查结构、文案和恢复路径。</p><section class="grid"><article class="card"><div class="eyebrow">Loading</div><h2>正在读取</h2><div class="skeleton"></div><div class="skeleton" style="width:70%"></div></article><article class="card"><div class="eyebrow">Empty</div><h2>还没有内容</h2><p>创建第一条内容后，它会出现在这里。</p><button class="button primary">创建</button></article><article class="card"><div class="eyebrow">Error</div><h2>未能加载</h2><p>请检查连接后重试。</p><button class="button">重试</button></article></section></main>` }));
+</script></body></html>
