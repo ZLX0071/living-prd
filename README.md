@@ -1,18 +1,10 @@
 # Living PRD
 
-把产品想法逐步交付为可编辑、可演示、可导出的**活文档 PRD 工作区** —— 为 AI Coding Agent 设计的 Skill。
-
-## 为什么叫 Living PRD
-
-传统 PRD 是一次性快照：交付即过时。Living PRD 让 PRD 变成"活"的：
+把产品想法交付为**可交互、可迭代、可追溯**的活文档 PRD 工作区 —— 为 AI Coding Agent 设计的 Skill。
 
 - **可交互**：每个功能模块都带可点击的网页原型、气泡标注和页面关系画布，读者直接"用"产品，而不是"读"文档
 - **可迭代**：所有产物是本地 Markdown / HTML / JSON，随需求演进持续修改，不做一次性交付
 - **可追溯**：门禁式作业流（G0–G5）加迭代记录，每一步决策、审核和修改都有据可查
-
-## 来源与致谢
-
-本项目 fork 自 [comeonzhj/interaction-prd](https://github.com/comeonzhj/interaction-prd)（MIT），在其门禁式作业流、可视化底座与数据契约之上独立迭代。上游版本的完整决策记录（v0.1.0–v0.8.0）原样保留在 [ITERATION_LOG.md](ITERATION_LOG.md)，本仓库的迭代条目追加在同一文件。感谢原作者的出色设计。
 
 ## 这是什么
 
@@ -35,7 +27,7 @@ Living PRD 是一个遵循 [Agent Skills](https://agentskills.io/) 规范的 Ski
 |------|------|
 | **G0 产品定型** | 通过多轮对话或代码分析收敛产品定位、用户、场景和 MVP 范围 |
 | **G1 板块计划** | 规划 PRD 模块的目标、边界、依赖和审核标准 |
-| **G2 PRD 基础分析** | 交付产品定义、用户需求分析、用户故事与旅程 |
+| **G2 PRD 基础分析** | 交付产品定义、用户需求分析、用户故事与旅程、数据与北极星指标 |
 | **G3 设计参考基线** | 确认视觉规范，建立组件与状态参考 |
 | **G4 逐模块交付** | 逐个提交 PRD + 原型 + 标注，逐一审核 |
 | **G5 全局收口** | 全量检查模块、页面、状态、标注和导出 |
@@ -48,7 +40,7 @@ Living PRD 是一个遵循 [Agent Skills](https://agentskills.io/) 规范的 Ski
 - **全局画布**：基于页面关系自动分层布局，支持拖拽微调
 - **气泡标注**：优先使用稳定 CSS 选择器锚定，支持坐标回退
 - **分组目录**：正式 PRD / 产品研究与参考 / 作业过程三组分明
-- **导出能力**：PRD Markdown + 原型截图资料包；另可一键复制 / 下载飞书、Notion 友好 Markdown
+- **导出能力**：PRD Markdown + 原型截图资料包；另可一键复制 / 下载**飞书、Notion 友好 Markdown**（Mermaid 折叠为节点说明、标注转为表格）
 
 ### 🔍 两种入口
 
@@ -57,33 +49,30 @@ Living PRD 是一个遵循 [Agent Skills](https://agentskills.io/) 规范的 Ski
 | **想法 / Shaping** | 用户有粗糙需求或产品材料 | 通过对话逐步澄清，多轮问答收敛 |
 | **Demo 代码** | 用户有可访问的产品 Demo 代码 | 从代码还原功能、规则、边界，区分"已实现事实"与"产品意图" |
 
-## 安装
+## 版本亮点
 
-### 使用 npx skills（推荐）
+- **数据与北极星指标**（第 4 个必交基础板块）：指标先于功能确认，验证器强制存在，避免功能交付与价值脱钩；模板覆盖指标树、护栏指标与虚荣指标反例
+- **竞品分析（S0）**：作为定型依据前置，结论强制回写定位与 MVP 范围，不作为独立交付漂移
+- **飞书 / Notion 导出**：本地转换 + 一键复制/下载，不做 API 集成，协作文档直接粘贴可用
+- **完整落地样例**：随仓库流程产出的「AI 面试陪练」工作区——18 个模块、7 页可交互原型、14 条可追溯标注（见下方截图）
+
+## 快速开始
+
+### 安装
 
 ```bash
 npx skills add ZLX0071/living-prd
 ```
 
-安装后，Skill 会被放置到当前项目的 skills 目录（或你使用的 Agent 对应的 skills 目录），并自动被 Agent 识别。
+安装后，Skill 会被放置到当前项目的 skills 目录（或你使用的 Agent 对应的 skills 目录），并自动被 Agent 识别。全局安装追加 `-g`。
 
-如需全局安装（所有项目可用）：
-
-```bash
-npx skills add ZLX0071/living-prd -g
-```
-
-### 手动克隆
+也可以手动克隆：
 
 ```bash
 git clone https://github.com/ZLX0071/living-prd.git
 ```
 
-然后将 `SKILL.md` 和相关文件放到你的 Agent skills 目录中。
-
-## 快速开始
-
-安装 Skill 后，对你的 AI Agent 说：
+### 对 AI Agent 说
 
 **从想法开始：**
 
@@ -93,59 +82,52 @@ git clone https://github.com/ZLX0071/living-prd.git
 
 > "用 living-prd 从这个 Demo 代码还原产品 PRD：[代码目录路径]"
 
-### 工作区初始化
+### 工作区初始化与底座
 
-Agent 会运行初始化脚本创建工作区：
+Agent 会运行初始化脚本创建工作区，然后启动本地底座：
 
 ```bash
-# 从想法入口
 python3 <skill-root>/scripts/init_living_prd.py --name "产品名" --type "Web"
 
-# 从 Demo 代码入口
-python3 <skill-root>/scripts/init_living_prd.py --name "产品名" --type "Web" \
-  --source-mode demo --source-path "./demo-code"
-```
-
-### 启动底座
-
-```bash
 cd <workspace>
 npm install
-npm run dev     # 启动本地底座
+npm run dev      # 启动本地底座
 npm run validate # 验证 manifest、文件引用和标注坐标
 ```
 
 ## 示例截图
 
-### 文档阅读视图
+以下截图来自「AI 面试陪练」工作区（用本 Skill 完整走完 G0–G5 的真实产出）。
+
+### 底座 · 文档阅读视图
 
 默认打开第一个正式 PRD 模块，支持 Markdown 渲染和 Mermaid 图表。
 
 ![文档阅读视图](docs/images/01-document-view.png)
 
-### 原型对照模式
+### 底座 · 原型对照模式
 
-点击"对照原型"进入约 2:1 布局，左侧原型、右侧审阅栏，可切换文档与页面标注。
+约 2:1 布局，左侧原型、右侧审阅栏，可切换文档与页面标注。
 
 ![原型对照模式](docs/images/05-prototype-compare.png)
 
-### 气泡标注
+### 底座 · 全局页面关系画布
 
-在原型上添加标注，优先使用稳定 CSS 选择器锚定，点击气泡自动定位到标注列表。
+基于页面关系自动分层布局，展示页面跳转与触发条件，支持拖拽微调。
 
-![气泡标注](docs/images/09-prototype-with-annotations.png)
+![全局画布](docs/images/08-global-canvas.png)
 
-### 全局画布
+### 原型 · 岗位准备
 
-基于页面关系自动分层布局，展示所有页面的跳转关系，支持拖拽微调。
+![岗位准备](docs/images/prototype-prep-home.png)
 
-![全局画布](docs/images/08-global-canvas-full.png)
+### 原型 · 模拟面试（追问机制）
 
-### 状态展示页
+![模拟面试](docs/images/prototype-interview-session.png)
 
-多状态并列展示，便于设计师和开发者理解各种边界情况。
+### 原型 · 练习报告
 
-![状态展示](docs/images/10-states-prototype.png)
+![练习报告](docs/images/prototype-report-detail.png)
 
 ## 工作区结构
 
@@ -167,7 +149,8 @@ npm run validate # 验证 manifest、文件引用和标注坐标
 │   ├── 01-product-definition.md
 │   ├── 02-users-and-needs.md
 │   ├── 03-user-stories-and-journey.md
-│   └── 04-metrics-and-north-star.md
+│   ├── 04-metrics-and-north-star.md
+│   └── ...功能模块
 ├── reference/                 # 设计参考（R1–R2）
 │   ├── DESIGN.md
 │   └── components-and-states.md
@@ -186,8 +169,8 @@ living-prd/
 ├── SKILL.md                  # Skill 指令（Agent 入口）
 ├── README.md                 # 本文件
 ├── AGENTS.md                 # 仓库维护规范
-├── ITERATION_LOG.md          # 版本迭代记录（含上游决策记录）
-├── LICENSE                   # MIT 许可（含上游版权声明）
+├── ITERATION_LOG.md          # 版本迭代记录
+├── LICENSE                   # MIT 许可
 ├── agents/
 │   └── openai.yaml           # OpenAI Agent 配置
 ├── references/               # 参考规范
@@ -198,6 +181,7 @@ living-prd/
 │   └── visual-system.md
 ├── scripts/
 │   └── init_living_prd.py    # 工作区初始化脚本
+├── docs/images/              # 示例截图
 └── assets/
     └── runtime/              # 底座模板
 ```
@@ -215,10 +199,10 @@ living-prd/
 
 ## 版本记录
 
-当前版本：**v0.11.0** — fork 自 [interaction-prd](https://github.com/comeonzhj/interaction-prd) v0.8.0。本仓库已交付：品牌更名与 `living-prd.json` 数据契约（v0.9.0）、数据与北极星指标基础板块 + 竞品分析 S0（v0.10.0）、飞书/Notion Markdown 导出（v0.11.0）。
+当前版本：**v1.0.0** — 首个正式版本：数据与北极星指标基础板块、竞品分析（S0）、飞书/Notion Markdown 导出，以及「AI 面试陪练」完整落地样例。
 
 详见 [ITERATION_LOG.md](ITERATION_LOG.md)。
 
 ## 许可
 
-MIT。本仓库在 [comeonzhj/interaction-prd](https://github.com/comeonzhj/interaction-prd)（MIT）基础上迭代，版权声明见 [LICENSE](LICENSE)。
+MIT。基于开源项目 [interaction-prd](https://github.com/comeonzhj/interaction-prd)（MIT）二次开发而来，版权声明见 [LICENSE](LICENSE)。
